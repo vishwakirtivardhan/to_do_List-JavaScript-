@@ -1,0 +1,124 @@
+	var a="";
+		 			var y=[];
+
+          var  len = localStorage.length;
+
+var s=len;
+	function mylist() {
+                      
+                      // document.getElementById('list1').innerHTML="<li>"+a+"</li>";	  
+ 	   		     s=s+1;	
+      					     a=document.getElementById('k').value;
+
+        localStorage.setItem('k'+s,a);
+						        y.push(a);  
+     					    var x=y.length;
+                    var z='';
+                    var i;
+                
+            for(i=0;i<x;i++)
+                {
+            
+                              z=z +" <li>"+"<input type='checkbox'  onclick='mycheck(event)'>"+y[i]+"<button onclick='remov("+i+")' class='cut'>remove</button> <hr> </li>  "; 
+                
+
+                            }
+          
+                          document.getElementById('list2').innerHTML=z;
+
+     					
+     					      document.getElementById('k').focus();
+     				       a=document.getElementById('k').value="";
+
+                	
+					
+    				}
+ 
+
+	  function remov(c) {
+		
+        	               	a=document.getElementById('k').value;
+  				                console.log(y);
+                          //localStorage.removeItem('k2');
+
+  				
+  				                document.getElementById('k').focus();
+  				
+                
+  				                y.splice(c,1);
+  				                var x=y.length;
+                    var z='';
+                    var i;
+                
+            for(i=0;i<x;i++)
+                {
+            
+                              z=z +" <li>"+"<input type='checkbox'  onclick='mycheck(event)'>"+y[i]+"<button onclick='remov("+i+")' class='cut'>remove</button> <hr> </li>  "; 
+                
+
+                            }
+          
+                          document.getElementById('list2').innerHTML=z;
+
+  				        			
+      					}
+
+	
+        						function using_enter()
+        						{
+        						            
+                                	a=event.keyCode;
+        							
+        						            	if (a==13) {
+
+        										                        mylist();
+
+  				      							}
+
+
+        						}
+
+
+                    function load()
+                                  {
+                                    var s = 0;
+                      var stored = '';
+                       var z ='';
+                       var len=localStorage.length;
+                       console.log(len);
+                                    for( var i=0;  i<len; i++)
+                                    {
+                                      s=s+1;
+                                      stored = localStorage.getItem('k'+s);
+                                      console.log(stored);
+                                      if(stored)
+                                      {
+                                        {
+                                        z=z +" <li>"+"<input type='checkbox'  onclick='mycheck(event)'>"+stored+"<button onclick='remov("+i+")' class='cut'>remove</button> <hr> </li>  "; 
+                                         }
+                                          document.getElementById('store').innerHTML=z;
+                                      }
+                                    }
+                                    }
+
+
+
+        		function mycheck(event)
+        		{
+        			
+
+                    event.target.style.width= '40%' ;
+        			       event.target.style.border= ' 5px solid red';
+        		
+            }
+
+function mydate(){
+
+      var d= document.getElementById('select_date').value;
+      
+      document.getElementById('dat').innerHTML= 'SLECTED DATE IS  :- '+d;
+
+}
+
+
+
